@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+
+    <style>
+        body
+        {
+            font-family: "Lucida Sans", "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+            background-color: #b8d8f1;
+            margin: 0;
+            padding: 0;
+        }
+        nav
+        {
+            background-color: #1C2B48; 
+            overflow: hidden;
+            height: 60px;
+        }
+        .Home, .about, .contact, .services
+        {
+            float: left;
+            color: #E8ECEF;
+            text-align: center;
+            padding: 17px 16px;
+            text-decoration: none;
+            font-size: 18px;
+        }
+        a:hover
+        {
+            background-color: #A7C7E7; 
+            transition-duration: 0.5s;
+        }
+        .Log_in
+        {
+            float: right;
+            background-color: #8EB1D1;
+            color: #1C2B48;
+            border: none;
+            padding: 10px 20px;
+            margin: 10px 16px;
+            cursor: pointer;
+            font-size: 18px;
+            border-radius: 5px;
+        }
+        #navbar 
+        {
+            border-bottom: 4px solid #8EB1D1;
+            box-shadow: 0 2px 5px rgba(142,177,209,0.5);
+        }
+        #content
+        {
+            padding: 20px;
+        }
+        #form 
+        {
+            margin-bottom: 18px;
+        }
+        label 
+        {
+            display: block;
+            font-size: .78rem;
+            color: #1C2B48;
+            font-family: "Lucida Sans", "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+            letter-spacing: 1.5px;
+            margin-bottom: 7px;
+        }
+        input[type="text"], input[type="email"], input[type="password"], input[type="number"]
+        {
+            width: 100%;
+            background: #C4D8E5;
+            border: 1px solid #8EB1D1;
+            border-radius: 6px;
+            padding: 10px 14px;
+            color: #1C2B48;
+            font-family: "Lucida Sans", "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+            font-size: .92rem;
+            outline: none;
+            margin: 5px;
+        }
+        #card 
+        {
+            width: 620px;
+            max-width: 90vw;
+            background: linear-gradient(145deg, #A7C7E7, #8EB1D1);
+            border: 1px solid #C4D8E5;
+            border-radius: 14px;
+            padding: 24px;
+            box-shadow: 0 0 40px rgba(140,177,209,.2);
+            margin: 40px auto;
+            display: flex;
+            overflow: hidden;
+        }
+        .card-left,
+        .card-right {
+            padding: 20px;
+        }
+        .card-left {
+            width: 210px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            border-right: 1px solid rgba(255,255,255,0.35);
+        }
+        .card-right {
+            flex: 1;
+            padding-left: 25px;
+        }
+        .avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #8EB1D1;
+            box-shadow: 0 0 0 4px rgba(142,177,209,.15);
+            cursor: pointer;
+            margin-bottom: 15px;
+        }
+        .upload-btn {
+            background-color: #8EB1D1;
+            border: none;
+            color: #1C2B48;
+            padding: 10px 18px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            width: 100%;
+        }
+        #profilePicture {
+            display: none;
+        }
+        .section-title {
+            font-size: 1.6rem;
+            margin: 0 0 10px 0;
+            letter-spacing: 1px;
+            color: #1C2B48;
+        }
+        .instructions {
+            font-size: 0.82rem;
+            line-height: 1.4;
+            color: #1C2B48;
+            margin-bottom: 20px;
+        }
+        .form-row {
+            display: flex;
+            gap: 10px;
+        }
+        .form-row .form {
+            flex: 1;
+        }
+        .form {
+            margin-bottom: 18px;
+        }
+        .checkbox {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin: 18px 0;
+            font-size: 0.85rem;
+            color: #1C2B48;
+        }
+        .checkbox input {
+            width: 16px;
+            height: 16px;
+        }
+        .Register
+        {
+            background-color: #8EB1D1;
+            border: none;
+            color: #1C2B48;
+            padding: 12px;
+            width: 100%;
+            font-family: "Lucida Sans", "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+            font-size: .85rem;
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            transition: transform .15s, box-shadow .3s;
+            box-shadow: 0 4px 20px rgba(142,177,209,.3);
+        }
+
+ 
+    </style>
+</head>
+<body>
+    <div id="container-fluid">
+        <nav id="navbar">
+            <a class="Home nav-link" href="index.html">Home</a>
+            <a class="about nav-link">Fare</a>
+            <a class="contact nav-link">Schedule</a>
+            <a class="services nav-link">Help</a>
+
+            <button class="Log_in">Log in</button>
+        </nav>
+    </div>
+
+    <div id="card">
+        <form action="#" method="post">
+            <div class="card-left">
+                <img id="profilePreview" class="avatar" src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTIwIiBoZWlnaHQ9IjEyMCIgdmlld0JveD0iMCAwIDEyMCAxMjAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxjaXJjbGUgY3g9IjYwIiBjeT0iNjAiIHI9IjYwIiBmaWxsPSIjMGEyZTQiLz48Y2lyY2xlIGN4PSI2MCIgY3k9IjQ1IiByPSIxNSIgZmlsbD0iI2M4ZTZmZiIvPjxwYXRoIGQ9Ik0zMCA4NVEzMCA3NSA0NSA3NUM2MCA3NSA3MCA4NSA3MCA5NVYxMDVIMzBWOThaIiBmaWxsPSIjYzhlNmZmIi8+PC9zdmc+" alt="Profile Picture">
+                <button type="button" class="upload-btn">Upload Image</button>
+                <input type="file" id="profilePicture" accept="image/*">
+
+            </div>
+
+            <div class="card-right">
+                <h1 class="section-title">REGISTRATION</h1>
+                <div class="instructions">
+                    <p><strong>▼ Instructions</strong></p>
+                    <p>Please fill out all required fields in the registration form with your information. Once completed, review your details and click 'Create my account' to finish your registration !</p>
+                </div>
+
+                <div class="form-row">
+                    <div class="form">
+                        <label for="firstname">First Name</label>
+                        <input type="text" id="firstname" placeholder="Enter first name" required/>
+                    </div>
+                    <div class="form">
+                        <label for="lastname">Last Name</label>
+                        <input type="text" id="lastname" placeholder="Enter last name" required/>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form">
+                        <label for="age">Age</label>
+                        <input type="number" id="age" placeholder="Age"/>
+                    </div>
+                    <div class="form">
+                        <label for="contact">Contact Number</label>
+                        <input type="number" id="contact" placeholder="Contact number"/>
+                    </div>
+                </div>
+
+                <div class="form">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" placeholder="Enter email address" required/>
+                </div>
+
+                <div class="form">
+                    <label for="username">Username</label>
+                    <input type="text" id="username" placeholder="Choose a username" required/>
+                </div>
+
+                <div class="form">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" placeholder="Enter your password" required/>
+                </div>
+
+                <div class="checkbox">
+                    <input type="checkbox" id="accept" required>
+                    <label for="accept">I accept the Terms and Conditions.</label>
+                </div>
+
+                <button type="submit" class="Register">Create my account</button>
+                <button type="button" class="Register" style="margin-top:10px; background:#ffffff; color:#1C2B48;">Cancel</button>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        const imageUpload = document.getElementById('profilePicture');
+        const imagePreview = document.getElementById('profilePreview');
+        const uploadBtn = document.querySelector('.upload-btn');
+
+        imagePreview.addEventListener('click', () => {
+            imageUpload.click();
+        });
+
+        uploadBtn.addEventListener('click', () => {
+            imageUpload.click();
+        });
+
+        imageUpload.addEventListener('change', () => {
+            const file = imageUpload.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    imagePreview.src = e.target.result;
+                    alert('Your profile photo has been updated');
+                }
+                reader.readAsDataURL(file);
+            }
+        });
+    </script>
+</body>
+</html>
